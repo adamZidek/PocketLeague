@@ -33,6 +33,11 @@ public class StatsScreenActivity extends AppCompatActivity {
         overridePendingTransition(0, 0);
         super.onCreate(savedInstanceState);
         myView = R.layout.stats_screen;
+        setContentView(myView);
+        WebView webView;
+        webView = (WebView) findViewById(R.id.newsWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
 
         if(savedInstanceState != null)
         {
@@ -40,10 +45,9 @@ public class StatsScreenActivity extends AppCompatActivity {
         }
         else
         {
-            myView = myView;
+            webView.loadUrl("https://rocketleaguestats.com/profile");
         }
 
-        setContentView(myView);
 
 
         //Set navigation item to be selected corresponding to current activity
@@ -78,11 +82,6 @@ public class StatsScreenActivity extends AppCompatActivity {
                 return true;
             }
         });
-        WebView webView;
-        webView = (WebView) findViewById(R.id.newsWebView);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://rocketleaguestats.com/profile");
     }
     protected void onSaveInstanceState(Bundle outState) {
 
