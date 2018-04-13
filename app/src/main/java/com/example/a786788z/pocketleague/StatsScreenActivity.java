@@ -1,11 +1,15 @@
 package com.example.a786788z.pocketleague;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 /**
  * Created by A786788Z on 4/7/2018.
@@ -17,6 +21,7 @@ public class StatsScreenActivity extends AppCompatActivity {
     private Intent intent;
     private BottomNavigationView navigationView;
 
+    @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
     protected void onCreate(Bundle savedInstanceState) {
         overridePendingTransition(0, 0);
         super.onCreate(savedInstanceState);
@@ -54,5 +59,11 @@ public class StatsScreenActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        WebView webView;
+        webView = (WebView) findViewById(R.id.newsWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://rocketleaguestats.com/profile");
     }
 }
