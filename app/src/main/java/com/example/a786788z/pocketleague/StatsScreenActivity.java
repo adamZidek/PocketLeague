@@ -8,8 +8,14 @@ import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
+
+import java.io.Serializable;
+
+import static android.widget.Toast.LENGTH_LONG;
 
 /**
  * Created by A786788Z on 4/7/2018.
@@ -20,12 +26,25 @@ public class StatsScreenActivity extends AppCompatActivity {
 
     private Intent intent;
     private BottomNavigationView navigationView;
+    private int myView;
 
     @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
     protected void onCreate(Bundle savedInstanceState) {
         overridePendingTransition(0, 0);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.stats_screen);
+        myView = R.layout.stats_screen;
+
+        if(savedInstanceState != null)
+        {
+            myView = savedInstanceState.getInt("ourView");
+        }
+        else
+        {
+            myView = myView;
+        }
+
+        setContentView(myView);
+
 
         //Set navigation item to be selected corresponding to current activity
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -59,11 +78,25 @@ public class StatsScreenActivity extends AppCompatActivity {
                 return true;
             }
         });
-
         WebView webView;
         webView = (WebView) findViewById(R.id.newsWebView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://rocketleaguestats.com/profile");
     }
+    protected void onSaveInstanceState(Bundle outState) {
+
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("ourView", myView);
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+        myView = savedInstanceState.getInt("ourView");
+
+    }
+
+
 }
