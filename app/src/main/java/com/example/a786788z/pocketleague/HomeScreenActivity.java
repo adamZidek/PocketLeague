@@ -6,6 +6,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
 
 /**
  * Created by A786788Z on 4/7/2018.
@@ -55,9 +58,12 @@ public class HomeScreenActivity extends AppCompatActivity {
                 return true;
             }
         });
+        WebView webView;
+        webView = (WebView) findViewById(R.id.newsWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://www.rocketleague.com/news/");
+
+
     }
-
-
-
-
 }
