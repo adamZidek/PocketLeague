@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sections">
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Aerials</item>
+        <item>Boost Management</item>
+        <item>Boost Management</item>
+        <item>Boost Management</item>
+        <item>Boost Management</item>
+        <item>Boost Management</item>
+        <item>Boost Management</item>
+        <item>Boost Management</item>
+        <item>Boost Management</item>
+        <item>Camera Settings</item>
+        <item>Camera Settings</item>
+        <item>Camera Settings</item>
+        <item>Camera Settings</item>
+        <item>Camera Settings</item>
+        <item>Camera Settings</item>
+        <item>Camera Settings</item>
+        <item>Camera Settings</item>
+        <item>Car Stats</item>
+        <item>Defense</item>
+        <item>Dribbling (Basic)</item>
+        <item>Dribbling (Advanced)</item>
+        <item>Half-flipping</item>
+        <item>General Tips</item>
+        <item>GG</item>
+        <item>GG</item>
+        <item>GG</item>
+        <item>GG</item>
+        <item>GG</item>
+        <item>GG</item>
+        <item>GG</item>
+        <item>GG</item>
+        <item>HH</item>
+        <item>HH</item>
+        <item>HH</item>
+        <item>HH</item>
+        <item>HH</item>
+        <item>HH</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>II</item>
+        <item>JJ</item>
+        <item>KK</item>
+        <item>LL</item>
+        <item>ZZ</item>
+    </string-array>
+</resources>
