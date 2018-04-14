@@ -114,5 +114,5 @@ public class StatsScreenActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "OnSAVE", Toast.LENGTH_LONG).show();
         webView.saveState(outState);
     }
-
+    
 }
