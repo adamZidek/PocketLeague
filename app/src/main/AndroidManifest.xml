@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
 
@@ -24,7 +25,8 @@
 
         <activity
             android:name=".HomeScreenActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance">
         </activity>
 
         <activity
@@ -38,8 +40,10 @@
 
         <activity
             android:name=".StatsScreenActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask">
         </activity>
+
     </application>
 
 </manifest>

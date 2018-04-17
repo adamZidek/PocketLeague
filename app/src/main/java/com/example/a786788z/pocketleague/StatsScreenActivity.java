@@ -24,36 +24,20 @@ import static android.widget.Toast.LENGTH_LONG;
  * Created by A786788Z on 4/7/2018.
  */
 
-
 //https://stackoverflow.com/questions/12131025/android-preventing-webview-reload-on-rotate
 
 public class StatsScreenActivity extends AppCompatActivity {
 
     private Intent intent;
     private BottomNavigationView navigationView;
-    private int myView;
     private Bundle webView_bundle;
-    private WebView webView;
 
-    @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
     protected void onCreate(Bundle savedInstanceState) {
-        Toast.makeText(getBaseContext(), "OnCreate", Toast.LENGTH_LONG).show();
-        overridePendingTransition(0, 0);
         super.onCreate(savedInstanceState);
 
+        overridePendingTransition(0, 0);
+        setContentView(R.layout.stats_screen);
 
-        if(savedInstanceState != null)
-        {
-            webView.restoreState(savedInstanceState);
-        }
-        else
-        {
-            myView = R.layout.stats_screen;
-            setContentView(myView);
-            webView = findViewById(R.id.newsWebView);
-            webView.setWebViewClient(new WebViewClient());
-            webView.loadUrl("https://rocketleaguestats.com/profile");
-        }
 
         //Set navigation item to be selected corresponding to current activity
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -88,31 +72,20 @@ public class StatsScreenActivity extends AppCompatActivity {
             }
         });
 
+        WebView webView;
+        webView = (WebView) findViewById(R.id.statsWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://rocketleaguestats.com/profile");
     }
-    /*
-    protected void onResume()
-    {
-        Toast.makeText(getBaseContext(), "OnResume", Toast.LENGTH_LONG).show();
-
-        if (webView_bundle != null) {
-            webView.restoreState(webView_bundle);
-        }
-
+    @Override
+    public void onResume(){
         super.onResume();
-    }
 
-    protected void onPause()
-    {
-        super.onPause();
-        Toast.makeText(getBaseContext(), "OnPause", Toast.LENGTH_LONG).show();
-        webView_bundle = new Bundle();
-        webView.saveState(webView_bundle);
+        //Because we are resuming activity to save state of web view, reset the selected item
+        //of task bar and override the transition provided by a single instance activity
+        navigationView.setSelectedItemId(R.id.action_stats);
+        overridePendingTransition(0, 0);
+
     }
- */
-    @SuppressLint("MissingSuperCall")
-    protected void onSaveInstanceState(Bundle outState) {
-        Toast.makeText(getBaseContext(), "OnSAVE", Toast.LENGTH_LONG).show();
-        webView.saveState(outState);
-    }
-    
 }

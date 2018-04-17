@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 /**
  * Created by A786788Z on 4/7/2018.
@@ -20,8 +21,10 @@ public class HomeScreenActivity extends AppCompatActivity {
     private BottomNavigationView navigationView;
 
     protected void onCreate(Bundle savedInstanceState) {
-        overridePendingTransition(0, 0);
         super.onCreate(savedInstanceState);
+
+        overridePendingTransition(0, 0);
+
         setContentView(R.layout.home_screen);
 
         //Set navigation item to be selected corresponding to current activity
@@ -53,7 +56,6 @@ public class HomeScreenActivity extends AppCompatActivity {
                         //Start New Activity Here
                         intent = new Intent(HomeScreenActivity.this, StatsScreenActivity.class);
                         HomeScreenActivity.this.startActivity(intent);
-                        break;
                 }
                 return true;
             }
@@ -63,7 +65,15 @@ public class HomeScreenActivity extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl("https://www.rocketleague.com/news/");
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
 
+        //Because we are resuming activity to save state of web view, reset the selected item
+        //of task bar and override the transition provided by a single instance activity
+        navigationView.setSelectedItemId(R.id.action_home);
+        overridePendingTransition(0, 0);
 
     }
 }

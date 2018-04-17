@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Default the users view to home screen
         intent = new Intent(MainActivity.this, HomeScreenActivity.class);
+        overridePendingTransition(0, 0);
         MainActivity.this.startActivity(intent);
 
     }
