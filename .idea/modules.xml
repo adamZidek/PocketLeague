@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PocketLeague.iml" filepath="$PROJECT_DIR$/PocketLeague.iml" />
+      <module fileurl="file://C:\Android Studio\PocketLeague\PocketLeague\PocketLeague.iml" filepath="C:\Android Studio\PocketLeague\PocketLeague\PocketLeague.iml" />
       <module fileurl="file://E:\Android Apps\PocketLeague\PocketLeague.iml" filepath="E:\Android Apps\PocketLeague\PocketLeague.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://E:\Android Apps\PocketLeague\app\app.iml" filepath="E:\Android Apps\PocketLeague\app\app.iml" />
+      <module fileurl="file://C:\Android Studio\PocketLeague\PocketLeague\app\app.iml" filepath="C:\Android Studio\PocketLeague\PocketLeague\app\app.iml" />
     </modules>
   </component>
 </project>

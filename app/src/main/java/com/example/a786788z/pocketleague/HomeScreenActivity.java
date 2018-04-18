@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -19,6 +20,7 @@ public class HomeScreenActivity extends AppCompatActivity {
 
     private Intent intent;
     private BottomNavigationView navigationView;
+    private WebView webView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,11 @@ public class HomeScreenActivity extends AppCompatActivity {
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigationView.setSelectedItemId(R.id.action_home);
 
+        //Create a new web view and load URL
+        webView = (WebView) findViewById(R.id.newsWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://www.rocketleague.com/news/");
 
         //Listen for bottom scroll bar bottom clicks
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -60,11 +67,7 @@ public class HomeScreenActivity extends AppCompatActivity {
                 return true;
             }
         });
-        WebView webView;
-        webView = (WebView) findViewById(R.id.newsWebView);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://www.rocketleague.com/news/");
+
     }
     @Override
     public void onResume(){
@@ -76,4 +79,20 @@ public class HomeScreenActivity extends AppCompatActivity {
         overridePendingTransition(0, 0);
 
     }
+
+    //Listen for back button pressed
+    @Override
+    public void onBackPressed()
+    {
+        if (webView.canGoBack())
+        {
+            webView.goBack();
+        }
+        else
+        {
+            //We want to keep the user using the bottom navigation
+            //to access different activities, so here we do nothing.
+        }
+    }
+
 }

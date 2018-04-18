@@ -30,7 +30,7 @@ public class StatsScreenActivity extends AppCompatActivity {
 
     private Intent intent;
     private BottomNavigationView navigationView;
-    private Bundle webView_bundle;
+    private WebView webView;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +42,12 @@ public class StatsScreenActivity extends AppCompatActivity {
         //Set navigation item to be selected corresponding to current activity
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigationView.setSelectedItemId(R.id.action_stats);
+
+        //Create a new web view and load URL
+        webView = (WebView) findViewById(R.id.statsWebView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://rocketleaguestats.com/profile");
 
         //Listen for bottom scroll bar bottom clicks
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -71,15 +77,10 @@ public class StatsScreenActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        WebView webView;
-        webView = (WebView) findViewById(R.id.statsWebView);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://rocketleaguestats.com/profile");
     }
     @Override
-    public void onResume(){
+    public void onResume()
+    {
         super.onResume();
 
         //Because we are resuming activity to save state of web view, reset the selected item
@@ -87,5 +88,20 @@ public class StatsScreenActivity extends AppCompatActivity {
         navigationView.setSelectedItemId(R.id.action_stats);
         overridePendingTransition(0, 0);
 
+    }
+
+    //Listen for back button pressed
+    @Override
+    public void onBackPressed()
+    {
+        if (webView.canGoBack())
+        {
+            webView.goBack();
+        }
+        else
+        {
+            //We want to keep the user using the bottom navigation
+            //to access different activities, so here we do nothing.
+        }
     }
 }
