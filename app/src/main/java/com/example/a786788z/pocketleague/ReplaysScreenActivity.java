@@ -7,12 +7,19 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerFragment;
+import com.google.android.youtube.player.YouTubePlayerView;
+
 /**
  * Created by A786788Z on 4/7/2018.
  */
 
-public class ReplaysScreenActivity extends AppCompatActivity {
+public class ReplaysScreenActivity extends YouTubeBaseActivity {
 
+    final String key = "AIzaSyBjwn4AzHy9G6ZkSUMGtuFT35dflYXV6R4";
 
     private Intent intent;
     private BottomNavigationView navigationView;
@@ -21,6 +28,17 @@ public class ReplaysScreenActivity extends AppCompatActivity {
         overridePendingTransition(0, 0);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.replays_screen);
+
+        YouTubePlayerView vid = (YouTubePlayerView) findViewById(R.id.player);
+        vid.initialize(key,
+                new YouTubePlayer.OnInitializedListener(){
+                    @Override
+                    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b){
+                        youTubePlayer.loadVideo("7rGKXner5Ig");
+                    }
+                    @Override
+                    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult){};
+                });
 
         //Set navigation item to be selected corresponding to current activity
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);

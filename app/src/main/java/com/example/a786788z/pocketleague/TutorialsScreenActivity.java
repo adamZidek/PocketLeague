@@ -21,15 +21,19 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerFragment;
+import com.google.android.youtube.player.YouTubePlayer.OnInitializedListener;
+
 /**
  * Created by A786788Z on 4/7/2018.
  */
 
 public class TutorialsScreenActivity extends AppCompatActivity implements View.OnClickListener {
-
-
     private Intent intent;
     private BottomNavigationView navigationView;
+
 
     Map<String, Integer> mapIndex;
     ListView tutorialList;
@@ -116,6 +120,7 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
     }
 
     public void onClick (View view) {
+
         TextView selectedIndex = (TextView) view;
         tutorialList.setSelection(mapIndex.get(selectedIndex.getText()));
 
