@@ -1,5 +1,6 @@
 package com.example.a786788z.pocketleague;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,12 +15,19 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.google.android.youtube.player.YouTubeBaseActivity;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerFragment;
+import com.google.android.youtube.player.YouTubePlayerView;
 
 /**
  * Created by A786788Z on 4/7/2018.
@@ -30,6 +38,8 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
 
     private Intent intent;
     private BottomNavigationView navigationView;
+    final String key = "AIzaSyBjwn4AzHy9G6ZkSUMGtuFT35dflYXV6R4";
+
 
     Map<String, Integer> mapIndex;
     ListView tutorialList;
@@ -82,6 +92,18 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
                 return true;
             }
         });
+
+        tutorialList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id)
+            {
+                //Object o = tutorialList.getItemAtPosition(pos);
+                intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+            }
+
+
+        });
     }
 
     /*AdapterView.OnItemClickListener itemClickedHandler = new AdapterView.OnItemClickListener() {
@@ -115,6 +137,7 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
         }
     }
 
+
     public void onClick (View view) {
         TextView selectedIndex = (TextView) view;
         tutorialList.setSelection(mapIndex.get(selectedIndex.getText()));
@@ -127,4 +150,11 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
         getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
         return true;
     }*/
+
+    //Listen for back button pressed
+    @Override
+    public void onBackPressed()
+    {
+
+    }
 }
