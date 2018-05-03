@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -24,6 +25,7 @@ public class YoutubeVidActivity extends YouTubeBaseActivity
     private YouTubePlayerView youTubePlayerView;
     private YouTubePlayer.OnInitializedListener onInitializedListener;
     final String key = "AIzaSyBjwn4AzHy9G6ZkSUMGtuFT35dflYXV6R4";
+    private String youtubeLink;
 
     protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -33,6 +35,8 @@ public class YoutubeVidActivity extends YouTubeBaseActivity
 
     //Set navigation item to be selected corresponding to current activity
     navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+
+        navigationView.setSelectedItemId(R.id.action_tutorials);
 
         //Listen for bottom scroll bar bottom clicks
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -50,7 +54,8 @@ public class YoutubeVidActivity extends YouTubeBaseActivity
                         YoutubeVidActivity.this.startActivity(intent);
                         break;
                     case R.id.action_tutorials:
-                        //Technically already in tutorials so do nothing
+                        intent = new Intent(YoutubeVidActivity.this, TutorialsScreenActivity.class);
+                        YoutubeVidActivity.this.startActivity(intent);
                         break;
                     case R.id.action_stats:
                         //Start New Activity Here
@@ -62,13 +67,22 @@ public class YoutubeVidActivity extends YouTubeBaseActivity
             }
         });
 
+        //Get youtube link value from tutorial activity
+        Bundle b = getIntent().getExtras();
+
+        //If bundle is not null then save the youtube link into variable
+        if(b != null)
+        {
+            youtubeLink = b.getString("link");
+        }
+
         YouTubePlayerView vid = (YouTubePlayerView) findViewById(R.id.player);
         vid.initialize(key,
                 new YouTubePlayer.OnInitializedListener(){
                     @Override
                     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b){
                         //youTubePlayer.setFullscreen(true);
-                        youTubePlayer.loadVideo("7rGKXner5Ig", 0);
+                        youTubePlayer.loadVideo(youtubeLink, 0);
                         youTubePlayer.pause();
                     }
                     @Override

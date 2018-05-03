@@ -14,7 +14,8 @@
         app:menu="@menu/bottom_nav_menu"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@android:color/white"
-        app:itemTextColor="@android:color/white" />
+        app:itemTextColor="@android:color/white"
+        android:background="@color/colorPrimary"/>
 
 
     <WebView

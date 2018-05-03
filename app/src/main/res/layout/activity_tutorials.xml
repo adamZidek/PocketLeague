@@ -14,7 +14,8 @@
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="@android:color/white"
         app:itemTextColor="@android:color/white"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        android:background="@color/colorPrimary"/>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

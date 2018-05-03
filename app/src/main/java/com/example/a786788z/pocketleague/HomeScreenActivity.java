@@ -52,16 +52,19 @@ public class HomeScreenActivity extends AppCompatActivity {
                     case R.id.action_replays:
                         //Start New Activity Here
                         intent = new Intent(HomeScreenActivity.this, ReplaysScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         HomeScreenActivity.this.startActivity(intent);
                         break;
                     case R.id.action_tutorials:
                         //Start New Activity Here
                         intent = new Intent(HomeScreenActivity.this, TutorialsScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         HomeScreenActivity.this.startActivity(intent);
                         break;
                     case R.id.action_stats:
                         //Start New Activity Here
                         intent = new Intent(HomeScreenActivity.this, StatsScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         HomeScreenActivity.this.startActivity(intent);
                 }
                 return true;

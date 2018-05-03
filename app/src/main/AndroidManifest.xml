@@ -35,24 +35,27 @@
         <activity
             android:name=".ReplaysScreenActivity"
             android:screenOrientation="portrait"
+            android:launchMode="singleInstance"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
         <activity
             android:name=".YoutubeVidActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan"
+            android:configChanges="keyboardHidden|orientation|screenSize">
         </activity>
 
         <activity android:name=".TutorialsScreenActivity"
             android:screenOrientation="portrait"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
         <activity
             android:name=".StatsScreenActivity"
             android:screenOrientation="portrait"
-            android:launchMode="singleTask"
+            android:launchMode="singleInstance"
             android:windowSoftInputMode="adjustPan">
         </activity>
 

@@ -41,7 +41,6 @@ public class StatsScreenActivity extends AppCompatActivity {
 
         //Set navigation item to be selected corresponding to current activity
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        navigationView.setSelectedItemId(R.id.action_stats);
 
         //Create a new web view and load URL
         webView = (WebView) findViewById(R.id.statsWebView);
@@ -58,16 +57,19 @@ public class StatsScreenActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.action_home:
                         intent = new Intent(StatsScreenActivity.this, HomeScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         StatsScreenActivity.this.startActivity(intent);
                         break;
                     case R.id.action_replays:
                         //Start New Activity Here
                         intent = new Intent(StatsScreenActivity.this, ReplaysScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         StatsScreenActivity.this.startActivity(intent);
                         break;
                     case R.id.action_tutorials:
                         //Start New Activity Here
                         intent = new Intent(StatsScreenActivity.this, TutorialsScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         StatsScreenActivity.this.startActivity(intent);
                         break;
                     case R.id.action_stats:

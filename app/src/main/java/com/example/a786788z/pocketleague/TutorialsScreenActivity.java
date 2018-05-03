@@ -62,7 +62,7 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
 
         //Set navigation item to be selected corresponding to current activity
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
-        navigationView.setSelectedItemId(R.id.action_tutorials);
+        //navigationView.setSelectedItemId(R.id.action_tutorials);
 
         //Listen for bottom scroll bar bottom clicks
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
@@ -73,11 +73,13 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
                 switch (item.getItemId()) {
                     case R.id.action_home:
                         intent = new Intent(TutorialsScreenActivity.this, HomeScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         TutorialsScreenActivity.this.startActivity(intent);
                         break;
                     case R.id.action_replays:
                         //Start New Activity Here
                         intent = new Intent(TutorialsScreenActivity.this, ReplaysScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         TutorialsScreenActivity.this.startActivity(intent);
                         break;
                     case R.id.action_tutorials:
@@ -86,6 +88,7 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
                     case R.id.action_stats:
                         //Start New Activity Here
                         intent = new Intent(TutorialsScreenActivity.this, StatsScreenActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         TutorialsScreenActivity.this.startActivity(intent);
                         break;
                 }
@@ -93,24 +96,36 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
             }
         });
 
+        //Handle opening youtube activity with correct video when an object is pressed
         tutorialList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id)
             {
-                //Object o = tutorialList.getItemAtPosition(pos);
-                intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
-                TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+
+                int arrayValue = pos;       //Array value is the position of the item in list, so its sequential.
+
+                if(pos == 0)
+                {
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "7rGKXner5Ig");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                if(pos == 1)
+                {
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "SYdiDAcvvO8");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+
             }
 
 
         });
     }
-
-    /*AdapterView.OnItemClickListener itemClickedHandler = new AdapterView.OnItemClickListener() {
-        public void onItemClick(AdapterView parent, View v, int position, long id) {
-            //intent = new Intent(this, )
-        }
-    };*/
 
     private void getIndexList(String[] tutorials) {
         mapIndex = new LinkedHashMap<String, Integer>();
@@ -145,16 +160,22 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
 
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
-        return true;
-    }*/
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        //Because we are resuming activity to save state of web view, reset the selected item
+        //of task bar and override the transition provided by a single instance activity
+        navigationView.setSelectedItemId(R.id.action_tutorials);
+        overridePendingTransition(0, 0);
+
+    }
 
     //Listen for back button pressed
     @Override
     public void onBackPressed()
     {
-
+        //We dont want to do anything here
     }
 }
