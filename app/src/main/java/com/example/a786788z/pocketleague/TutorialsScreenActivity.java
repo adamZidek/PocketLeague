@@ -105,21 +105,111 @@ public class TutorialsScreenActivity extends AppCompatActivity implements View.O
                 int arrayValue = pos;       //Array value is the position of the item in list, so its sequential.
 
                 if(pos == 0)
-                {
+                {   //Aerials
                     intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
                     Bundle b = new Bundle();
-                    b.putString("link", "7rGKXner5Ig");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    b.putString("link", "a5sQjUITf-8");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
                     intent.putExtras(b);
                     TutorialsScreenActivity.this.startActivityForResult(intent, 1);
                 }
-                if(pos == 1)
-                {
+                else if(pos == 1)
+                {   //Air Dribbling
                     intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
                     Bundle b = new Bundle();
-                    b.putString("link", "SYdiDAcvvO8");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    b.putString("link", "Jqfpe-AotSI&t");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
                     intent.putExtras(b);
                     TutorialsScreenActivity.this.startActivityForResult(intent, 1);
                 }
+                else if(pos == 2)
+                {
+                    //Boost Management
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "Jqfpe-AotSI&t");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 3)
+                {   //Car stats
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "i90pnvp6Zkc");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 4)
+                {   //Challenging
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "9erKMUdZlzM");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 5)
+                {   //Defense
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "LFq1nZa9IDs&");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 6)
+                {   //Dribbling
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "eBmgRPOmh98");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 7)
+                { //Flicking
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "djql1j_zBFQ&");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 8)
+                {   //Goaltending
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "Omk31pxWP-");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 9)
+                {   //Half-flipping
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "V_4ajUfCVq4");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 10)
+                {   //Kickoffs
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "Qcz6BuutlAk");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 11)
+                {   //Rotation
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "mqhkSKjKR38&");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+                else if(pos == 12)
+                {   //Striking
+                    intent = new Intent(TutorialsScreenActivity.this, YoutubeVidActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("link", "fA0ivgr69Xg&");    //First string is the key, second is the actual value(youtube link(just part after equals sign)
+                    intent.putExtras(b);
+                    TutorialsScreenActivity.this.startActivityForResult(intent, 1);
+                }
+
 
             }
 
